@@ -1,40 +1,61 @@
-import "./SideMenu.css"
+import "./SideMenu.css";
 import User from "./User";
-import cam from "./assets/cam1.jpg";
-import lap from "./assets/lap5.jpg";
+
+import camera from "./assets/cam1.jpg";
+import laptop from "./assets/lap5.jpg";
 import phone from "./assets/phone2.jpg";
+
+// Map des noms vers les images importées
+const images = {
+    camera: camera,
+    laptop: laptop,
+    phone: phone,
+};
+
+let products = [
+    { id: 1, name: "camera", ratings: 3 },
+    { id: 2, name: "laptop", ratings: 4 },
+    { id: 3, name: "phone", ratings: 5 },
+    { id: 4, name: "phone", ratings: 6 },
+];
+
+function RatingsComponent({ ratings }) {
+    const stars = [];
+
+    for (let i = 1; i <= ratings; i++) {
+        stars.push(
+            <i
+                key={i}
+                className="fas fa-star"
+                style={{ color: "gold", marginRight: 2 }}
+            ></i>
+        );
+    }
+
+    return <div>{stars}</div>;
+}
+
+
+let productsComponents = products.map((product) => {
+    return (
+        <User key={product.id} name={product.name}>
+            <img
+                style={{ width: "50px", height: "50px" }}
+                src={images[product.name]}
+                alt={product.name}
+            />
+            <div>
+                <RatingsComponent ratings={product.ratings} />
+            </div>
+        </User>
+    );
+});
 
 export default function SideMenu() {
     return(
         <>
             <div className={"sideMenu"}>
-                <User name="Camera">
-                    <img style={{width: "50px", height: "50px"}} src={cam} alt="this is an img" />
-                    <div>
-                        <i className="fas fa-star" style={{ color: "gold" }}></i>
-                        <i className="fas fa-star" style={{ color: "gold" }}></i>
-                        <i className="fas fa-star" style={{ color: "gold" }}></i>
-                    </div>
-                </User>
-                <User name="Laptops">
-                    <img style={{width: "50px", height: "50px"}} src={lap} alt="this is an img" />
-                    <div>
-                        <i className="fas fa-star" style={{ color: "gold" }}></i>
-                        <i className="fas fa-star" style={{ color: "gold" }}></i>
-                        <i className="fas fa-star" style={{ color: "gold" }}></i>
-                        <i className="fas fa-star" style={{ color: "gold" }}></i>
-                    </div>
-                </User>
-                <User name="Phones">
-                    <img style={{width: "50px", height: "50px"}} src={phone} alt="this is an img" />
-                    <div>
-                        <i className="fas fa-star" style={{ color: "gold" }}></i>
-                        <i className="fas fa-star" style={{ color: "gold" }}></i>
-                        <i className="fas fa-star" style={{ color: "gold" }}></i>
-                        <i className="fas fa-star" style={{ color: "gold" }}></i>
-                        <i className="fas fa-star" style={{ color: "gold" }}></i>
-                    </div>
-                </User>
+                {productsComponents}
             </div>
         </>
     );
