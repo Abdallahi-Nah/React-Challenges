@@ -1,12 +1,12 @@
 import "./Post.css";
 
-export default function Post() {
+export default function Post({title, content}) {
     return(
         <>
             <div className={"post"}>
-            <p className={"postHeader"}>This is the post title</p>
+            <p className={"postHeader"}>{title}</p>
             <hr />
-            <p>This is the post body</p>
+            <p>{content}</p>
             </div>
         </>
     );
