@@ -5,6 +5,21 @@ import "./Post.css";
 import SideMenu from "./SideMenu.jsx";
 
 function App() {
+  let posts = [
+    {
+      title: "This is first title",
+      content: "This is first content"
+    },
+    {
+      title: "This is second title",
+      content: "This is second content"
+    },
+    {
+      title: "This is third title",
+      content: "This is third content"
+    }
+  ];
+
   return (
     <>
       <HeaderComponent />
@@ -13,10 +28,9 @@ function App() {
           <SideMenu />
         </div>
         <div className={"posts"}>
-          <Post />
-          <Post />
-          <Post />
-          <Post />
+          {posts.map((post, index) => (
+            <Post key={index} title={post.title} content={post.content}/>
+          ))}
         </div>
       </div>
     </>

@@ -12,7 +12,11 @@
     text-align: center;
     border: 2px solid #dddddd;
     padding: 15px 0px;
-    border-radius: 10px
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
 }
 
 .links:hover {
