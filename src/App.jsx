@@ -1,30 +1,17 @@
-import Header from "./components/Header";
-import Content from "./components/Content";
-import Laptops from "./components/Laptops";
-import Home from "./components/Home";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import React from 'react';
+import Header from "./components/Header.jsx";
+import Text from "./components/Text.jsx";
+import Social from "./components/Social.jsx";
+
 
 function App() {
   return (
     <>
-      <BrowserRouter>
+      <div className='container'>
         <Header />
-        <Routes>
-          <Route
-            path="/phones"
-            element={
-              <>
-                <Content />
-                <Content />
-                <Content />
-                <Content />
-              </>
-            }
-          />
-          <Route path="/laptops" element={<Laptops />} />
-          <Route path="/" element={<Home />} />
-        </Routes>
-      </BrowserRouter>
+        <Text />
+        <Social />
+      </div>
     </>
   );
 }
