@@ -1,16 +1,11 @@
 import React from 'react';
-import Header from "./components/Header.jsx";
-import Text from "./components/Text.jsx";
-import Social from "./components/Social.jsx";
-
+import Employees from './components/Employees';
 
 function App() {
   return (
     <>
-      <div className='container'>
-        <Header />
-        <Text />
-        <Social />
+      <div className='container w-100'>
+        <Employees />
       </div>
     </>
   );
