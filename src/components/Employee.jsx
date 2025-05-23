@@ -5,11 +5,17 @@ import InfosEmployee from './InfosEmployee'
 
 export default function Employee({name, job, phone, email, website}) {
   return (
-    <div className='container w-25 pb-4 h-75 rounded-2' style={{backgroundColor: "#444444"}}>
-        <ImgEmployee />
-        <DescEmployee name={name} job={job} />
-        <hr className='text-white' />
-        <InfosEmployee phone={phone} email={email} website={website} />
+    <div className='col-md-4 col-sm-6 pb-4 rounded-2'>
+      <div className="card">
+          <div className="card-header">
+            <ImgEmployee />
+          </div>
+          <div className="card-body">
+            <DescEmployee name={name} job={job} />
+            <hr className='text-white' />
+            <InfosEmployee phone={phone} email={email} website={website} />
+          </div>
+      </div>
     </div>
   )
 }
